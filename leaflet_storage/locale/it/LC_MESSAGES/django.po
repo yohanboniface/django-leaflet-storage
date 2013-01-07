@@ -1,0 +1,279 @@
+# DJANGO-LEAFLET-STORAGE.
+# Copyleft (C) 2012
+# This file is distributed under the same license as the
+#  DJANGO-LEAFLET-STORAGE package.
+# YOHAN BONIFACE <yb@enix.org>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-05 00:43+0100\n"
+"PO-Revision-Date: 2013-01-07 01:14+0100\n"
+"Last-Translator: Stefano\n"
+"Language-Team: FR <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: base_models.py:12
+msgid "name"
+msgstr "nome"
+
+#: base_models.py:26
+msgid "details"
+msgstr "dettagli"
+
+#: base_models.py:27
+msgid "Link to a page where the licence is detailed."
+msgstr "Link ad una pagina dove ci sono i dettagli della licenza."
+
+#: base_models.py:38
+msgid "No licence set"
+msgstr "Nessuna licenza impostata"
+
+#: base_models.py:45
+msgid "URL template using OSM tile format"
+msgstr "Modello dell'URL usando il formato delle tile OSM"
+
+#: base_models.py:71
+msgid "Everyone can edit"
+msgstr "Tutti possono modificare"
+
+#: base_models.py:72
+msgid "Only editors can edit"
+msgstr "Solo gli editor possono modificare"
+
+#: base_models.py:73
+msgid "Only owner can edit"
+msgstr "Solo il proprietario può modificare"
+
+#: base_models.py:76
+#: base_models.py:151
+#: base_models.py:221
+msgid "description"
+msgstr "descrizione"
+
+#: base_models.py:77
+msgid "center"
+msgstr "centro"
+
+#: base_models.py:78
+msgid "zoom"
+msgstr "zoom"
+
+#: base_models.py:79
+msgid "locate"
+msgstr "localizza"
+
+#: base_models.py:79
+msgid "Locate user on load?"
+msgstr "Geolocalizzare l'utente al caricamento?"
+
+#: base_models.py:82
+msgid "Choose the map licence."
+msgstr "Scegliere una licenza per la mappa."
+
+#: base_models.py:83
+msgid "licence"
+msgstr "licenza"
+
+#: base_models.py:88
+msgid "owner"
+msgstr "proprietario"
+
+#: base_models.py:89
+msgid "editors"
+msgstr "editor"
+
+#: base_models.py:90
+msgid "edit status"
+msgstr "stato della modifica"
+
+#: base_models.py:156
+msgid "Must be a CSS valid name (eg.: DarkBlue or #123456)"
+msgstr "Dev'essere un nome CSS valido (es. DarkBlud o #123456)"
+
+#: base_models.py:157
+#: base_models.py:227
+msgid "color"
+msgstr "colore"
+
+#: base_models.py:163
+msgid "pictogram"
+msgstr "pittogramma"
+
+#: base_models.py:173
+msgid "display on load"
+msgstr "mostra al caricamento"
+
+#: base_models.py:174
+msgid "Display this category on load."
+msgstr "Mostra questa categoria al caricamento."
+
+#: base_models.py:179
+msgid "Rank to order the categories"
+msgstr "Posiziona per ordinare le categorie"
+
+#: base_models.py:180
+msgid "rank"
+msgstr "posizione"
+
+#: base_models.py:211
+msgid "My data"
+msgstr "I miei dati"
+
+#: base_models.py:228
+msgid "Optional. Uses category color if not set. "
+msgstr "Opzionale. Usa il colore della categoria se non impostato."
+
+#: base_models.py:230
+#: forms.py:105
+msgid "category"
+msgstr "categoria"
+
+#: forms.py:64
+msgid "You already have a map with this name."
+msgstr "Possiedi già una mappa con questo nome"
+
+#: forms.py:102
+msgid "Content type"
+msgstr "Tipo del contenuto"
+
+#: forms.py:103
+msgid "file"
+msgstr "file"
+
+#: forms.py:104
+msgid "URL"
+msgstr "URL"
+
+#: forms.py:128
+msgid "Unable to fetch content from URL."
+msgstr "Impossibile caricare il contenuto di questo URL."
+
+#: forms.py:140
+msgid "You must provide an URL or a file."
+msgstr "Devi fornire un URL o un file."
+
+#: forms.py:142
+msgid "You can't provide both a file and an URL."
+msgstr "Non puoi fornire sia un file sia un URL."
+
+#: forms.py:154
+#, python-format
+msgid "Unsupported content_type: %s"
+msgstr "Tipo di contenuto non supportato: %s"
+
+#: forms.py:159
+#, python-format
+msgid "Invalid %(content_type)s"
+msgstr "%(content_type)s non valido"
+
+#: views.py:189
+msgid "Zoom and center updated with success!"
+msgstr "Zoom e centro aggiornati con successo!"
+
+#: views.py:207
+msgid "Map editors updated with success!"
+msgstr "Editor della mappa aggiornati con successo!"
+
+#: views.py:373
+msgid "Only its owner can delete the map."
+msgstr "Solo il proprietario può cancellare la mappa."
+
+#. Translators: "feature" is a feature type: Marker, Polyline, Polygon
+#: views.py:498
+#, python-format
+msgid "%(feature)s successfully deleted."
+msgstr "%(feature)s cancellate."
+
+#: views.py:643
+msgid "Category successfully deleted."
+msgstr "Categoria cancellata con successo."
+
+#: templates/leaflet_storage/category_confirm_delete.html:2
+#: templates/leaflet_storage/category_form.html:7
+#: templates/leaflet_storage/feature_confirm_delete.html:2
+#: templates/leaflet_storage/feature_form.html:7
+#: templates/leaflet_storage/map_confirm_delete.html:2
+#: templates/leaflet_storage/map_form.html:6
+msgid "Delete"
+msgstr "Cancella"
+
+#: templates/leaflet_storage/category_confirm_delete.html:4
+#, python-format
+msgid "This will also delete all the %(category_count)s feature(s) of this category."
+msgstr "Questo anche cancellerà tutte i %(category_count)s POI di questa categoria."
+
+#: templates/leaflet_storage/category_confirm_delete.html:9
+#: templates/leaflet_storage/feature_confirm_delete.html:6
+#: templates/leaflet_storage/map_confirm_delete.html:10
+msgid "yes"
+msgstr "si"
+
+#: templates/leaflet_storage/map_confirm_delete.html:4
+#, python-format
+msgid "This will also delete the %(category_count)s category(ies) of this map and all their features."
+msgstr "Questo cancellerà anche le %(category_count)s categorie di questa mappa e tutti i POI associati."
+
+#: templates/leaflet_storage/map_confirm_delete.html:6
+msgid "This action can't be cancelled."
+msgstr "Questa azione non può essere cancellata."
+
+#: templates/leaflet_storage/map_embed.html:2
+msgid "Embed this map"
+msgstr "Esporta questa mappa"
+
+#: templates/leaflet_storage/map_infos.html:8
+msgid "User content credits"
+msgstr "Riconoscimenti per il contenuto utente"
+
+#: templates/leaflet_storage/map_infos.html:9
+#, python-format
+msgid "Map user content has been published under licence <a href=\"%(url)s\">%(licence)s</a>"
+msgstr "Il contenuto utente è stato pubblicato sotto licenza <a href=\"%(url)s\">%(licence)s</a>"
+
+#: templates/leaflet_storage/map_infos.html:10
+msgid "Tile layers credits"
+msgstr "Riconoscimenti per i livelli di sfondo"
+
+#: templates/leaflet_storage/map_infos.html:16
+#, python-format
+msgid "Powered by <a href=\"%(leaflet_url)s\">Leaflet</a> and <a href=\"%(django_url)s\">Django</a>, glued by <a href=\"%(umap_url)s\">u{Map} project</a>."
+msgstr "Basato su <a href=\"%(leaflet_url)s\">Leaflet</a> e <a href=\"%(django_url)s\">Django</a>, messi insieme dal <a href=\"%(umap_url)s\">progetto u{Map}</a>."
+
+#: templates/leaflet_storage/map_update_permissions.html:2
+msgid "Map permissions"
+msgstr "Permessi della mappa"
+
+#: templates/leaflet_storage/upload_form.html:2
+msgid "Upload features"
+msgstr "Carica POI"
+
+#: templates/leaflet_storage/upload_form.html:3
+msgid "Formats supported (more to come)"
+msgstr "Formati supportati (altri saranno resi disponibili)"
+
+#: templates/leaflet_storage/upload_form.html:4
+msgid "GeoJSON (properties used: name or title, description, color)"
+msgstr "GeoJSON (proprietà utilizzate: name o title, description, color)"
+
+#: templates/leaflet_storage/upload_form.html:5
+msgid "KML (properties used: name, description)"
+msgstr "KML (proprietà utilizzate: name, description)"
+
+#: templates/leaflet_storage/upload_form.html:6
+msgid "GPX (properties used: name, desc)"
+msgstr "GPX (proprietà utilizzate: name, desc)"
+
+#: templates/registration/login.html:2
+msgid "Please log in to proceed"
+msgstr "Fai il login per continuare"
+
+#: templates/registration/login.html:4
+msgid "Your username and password didn't match. Please try again."
+msgstr "Il tuo username e la tua password non corrispondono. Riprova."
+
