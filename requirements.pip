@@ -2,5 +2,5 @@ Django>=1.4
 psycopg2>=2.4.5
 PIL
 git+git://github.com/yohanboniface/vectorformats.git@leafletstorage
-south
+South
 simplejson
