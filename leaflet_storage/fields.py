@@ -13,7 +13,7 @@ class DictField(models.TextField):
         if not value:
             value = {}
         if not isinstance(value, six.string_types):
-            value = json.dumps(value)
+            value = json.dumps(value, ensure_ascii=False)
         return value
 
     def from_db_value(self, value, expression, connection, context):
@@ -26,3 +26,10 @@ class DictField(models.TextField):
             return json.loads(value)
         else:
             return value
+
+    def value_from_object(self, obj):
+        """
+        Returns the value of this field in the given model instance.
+        """
+        value = getattr(obj, self.attname)
+        return json.dumps(value, ensure_ascii=False) if value is not None else ''
