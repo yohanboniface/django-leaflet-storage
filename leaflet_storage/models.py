@@ -13,7 +13,7 @@ from django.template.defaultfilters import slugify
 from django.core.files.base import File
 
 from .fields import DictField
-from .managers import PublicManager
+from .managers import MapManager
 
 
 class NamedModel(models.Model):
@@ -142,8 +142,7 @@ class Map(NamedModel):
     share_status = models.SmallIntegerField(choices=SHARE_STATUS, default=PUBLIC, verbose_name=_("share status"))
     settings = DictField(blank=True, null=True, verbose_name=_("settings"))
 
-    objects = models.GeoManager()
-    public = PublicManager()
+    objects = MapManager()
 
     def get_absolute_url(self):
         return reverse("map", kwargs={'slug': self.slug or "map", 'pk': self.pk})
