@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-05 18:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\forms.py:43
+#, python-format
+msgid "Secret edit link is %s"
+msgstr "A titkos szerkesztési link: %s"
+
+#: .\forms.py:47 .\models.py:116
+msgid "Everyone can edit"
+msgstr "Bárki szerkesztheti"
+
+#: .\forms.py:48
+msgid "Only editable with secret edit link"
+msgstr "Kizárólag egy titkos szerkesztési linken szerkeszthető"
+
+#: .\models.py:20
+msgid "name"
+msgstr "név"
+
+#: .\models.py:51
+msgid "details"
+msgstr "részletek"
+
+#: .\models.py:52
+msgid "Link to a page where the licence is detailed."
+msgstr "Egy részletes licenszinformációkat tartalmazó lap linkje"
+
+#: .\models.py:66
+msgid "URL template using OSM tile format"
+msgstr "OSM csempeformátumot használó URL-sablon"
+
+#: .\models.py:74
+msgid "Order of the tilelayers in the edit box"
+msgstr "Csemperétegek sorrendje a szerkesztődobozban"
+
+#: .\models.py:117
+msgid "Only editors can edit"
+msgstr "Csak a szerkesztők szerkeszthetik"
+
+#: .\models.py:118
+msgid "Only owner can edit"
+msgstr "Csak a tulajdonos szerkesztheti"
+
+#: .\models.py:121
+msgid "everyone (public)"
+msgstr "mindenki (nyilvános)"
+
+#: .\models.py:122
+msgid "anyone with link"
+msgstr "a link birtokában bárki"
+
+#: .\models.py:123
+msgid "editors only"
+msgstr "csak szerkesztők"
+
+#: .\models.py:126 .\models.py:260
+msgid "description"
+msgstr "leírás"
+
+#: .\models.py:127
+msgid "center"
+msgstr "középpont"
+
+#: .\models.py:128
+msgid "zoom"
+msgstr "zoom"
+
+#: .\models.py:129
+msgid "locate"
+msgstr "helymeghatározás"
+
+#: .\models.py:129
+msgid "Locate user on load?"
+msgstr "Bekérjük a felhasználó pozícióját betöltéskor?"
+
+#: .\models.py:132
+msgid "Choose the map licence."
+msgstr "Válassz licenszet a térképhez!"
+
+#: .\models.py:133
+msgid "licence"
+msgstr "licensz"
+
+#: .\models.py:138
+msgid "background"
+msgstr "háttér"
+
+#: .\models.py:139
+msgid "owner"
+msgstr "tulajdonos"
+
+#: .\models.py:140
+msgid "editors"
+msgstr "szerkesztők"
+
+#: .\models.py:141
+msgid "edit status"
+msgstr "szerkeszthetőség"
+
+#: .\models.py:142
+msgid "share status"
+msgstr "megoszthatóság"
+
+#: .\models.py:143
+msgid "settings"
+msgstr "beállítások"
+
+#: .\models.py:181
+#, python-format
+msgid "Your anonymous map has been attached to your account %s"
+msgstr "Az anonim térképet a felhasználódhoz csatoltuk: %s"
+
+#: .\models.py:214
+msgid "Clone of"
+msgstr "Másolat erről: "
+
+#: .\models.py:265
+msgid "display on load"
+msgstr "megjelenítés betöltéskor"
+
+#: .\models.py:266
+msgid "Display this layer on load."
+msgstr "Réteg megjelenítése betöltéskor"
+
+#: .\templates\leaflet_storage\login_popup_end.html:2
+msgid "You are logged in. Continuing..."
+msgstr "Már be vagy jelentkezve. Továbblépés…"
+
+#: .\templates\leaflet_storage\map_update_permissions.html:2
+msgid "Map permissions"
+msgstr "A térképhez tartozó engedélyek"
+
+#: .\templates\registration\login.html:2
+msgid "Please log in to proceed"
+msgstr "Kérlek, jelentkezz be a továbblépéshez!"
+
+#: .\templates\registration\login.html:4
+msgid "Your username and password didn't match. Please try again."
+msgstr "Nem megfelelő felhasználónevet és jelszót adtál meg. Kérlek, próbáld újra!"
+
+#: .\views.py:234
+#, python-format
+msgid ""
+"Your map has been created! If you want to edit this map from another "
+"computer, please use this link: %(anonymous_url)s"
+msgstr ""
+"A térképed elkészült! Ha szeretnéd szerkeszteni egy másik számítógépről, "
+"ezt a linket használd: %(anonymous_url)s"
+
+#: .\views.py:236 .\views.py:339
+msgid "anonymous_url"
+msgstr "anonim link"
+
+#: .\views.py:239
+msgid "Congratulations, your map has been created!"
+msgstr "Gratulálunk, a térképed elkészült!"
+
+#: .\views.py:266
+msgid "Map has been updated!"
+msgstr "A térkép sikeresen frissítve lett."
+
+#: .\views.py:293
+msgid "Map editors updated with success!"
+msgstr "A térképszerkesztők sikeresen frissítve lettek."
+
+#: .\views.py:308
+msgid "Only its owner can delete the map."
+msgstr "A térképet csak a tulajdonosa törölheti."
+
+#: .\views.py:337
+#, python-format
+msgid ""
+"Your map has been cloned! If you want to edit this map from another "
+"computer, please use this link: %(anonymous_url)s"
+msgstr ""
+"A térképről sikeresen másolatot készítettünk! Ha szeretnéd szerkeszteni egy másik számítógépről, "
+"ezt a linket használd: %(anonymous_url)s"
+
+#: .\views.py:342
+msgid "Congratulations, your map has been cloned!"
+msgstr "Gratulálunk, a térképről sikeresen készített egy másolatot!"
+
+#: .\views.py:528
+msgid "Layer successfully deleted."
+msgstr "A réteget sikeresen töröltük."
