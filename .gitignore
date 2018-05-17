@@ -14,3 +14,4 @@ build/
 *.egg-info
 datalayer/
 .cache/
+.pytest_cache/

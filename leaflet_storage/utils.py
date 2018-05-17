@@ -1,7 +1,7 @@
 import gzip
 
-from django.core.urlresolvers import get_resolver
-from django.core.urlresolvers import RegexURLPattern, RegexURLResolver
+from django.urls import get_resolver
+from django.urls import URLPattern, URLResolver
 
 
 def get_uri_template(urlname, args=None, prefix=""):
@@ -59,10 +59,10 @@ def get_uri_template(urlname, args=None, prefix=""):
     return None
 
 
-class DecoratedURLPattern(RegexURLPattern):
+class DecoratedURLPattern(URLPattern):
 
     def resolve(self, *args, **kwargs):
-        result = RegexURLPattern.resolve(self, *args, **kwargs)
+        result = URLPattern.resolve(self, *args, **kwargs)
         if result:
             for func in self._decorate_with:
                 result.func = func(result.func)
@@ -84,14 +84,14 @@ def decorated_patterns(func, *urls):
 
     def decorate(urls, func):
         for url in urls:
-            if isinstance(url, RegexURLPattern):
+            if isinstance(url, URLPattern):
                 url.__class__ = DecoratedURLPattern
                 if not hasattr(url, "_decorate_with"):
                     setattr(url, "_decorate_with", [])
                 url._decorate_with.append(func)
-            elif isinstance(url, RegexURLResolver):
+            elif isinstance(url, URLResolver):
                 for pp in url.url_patterns:
-                    if isinstance(pp, RegexURLPattern):
+                    if isinstance(pp, URLPattern):
                         pp.__class__ = DecoratedURLPattern
                         if not hasattr(pp, "_decorate_with"):
                             setattr(pp, "_decorate_with", [])

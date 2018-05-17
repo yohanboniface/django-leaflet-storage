@@ -2,7 +2,7 @@ import json
 
 import factory
 from django.contrib.auth import get_user_model
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from leaflet_storage.forms import DEFAULT_CENTER
 from leaflet_storage.models import DataLayer, Licence, Map, TileLayer
@@ -30,16 +30,7 @@ class UserFactory(factory.DjangoModelFactory):
     username = 'Joe'
     email = factory.LazyAttribute(
         lambda a: '{0}@example.com'.format(a.username).lower())
-
-    @classmethod
-    def _prepare(cls, create, **kwargs):
-        password = kwargs.pop('password', None)
-        user = super(UserFactory, cls)._prepare(create, **kwargs)
-        if password:
-            user.set_password(password)
-            if create:
-                user.save()
-        return user
+    password = factory.PostGenerationMethodCall('set_password', '123123')
 
     class Meta:
         model = User

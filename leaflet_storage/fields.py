@@ -30,4 +30,4 @@ class DictField(models.TextField):
 
     def value_to_string(self, obj):
         """Return value from object converted to string properly"""
-        return smart_text(self.get_prep_value(self._get_val_from_obj(obj)))
+        return smart_text(self.get_prep_value(self.value_from_object(obj)))

@@ -1,7 +1,7 @@
-from django.contrib.gis.db import models
+from django.db.models import Manager
 
 
-class PublicManager(models.GeoManager):
+class PublicManager(Manager):
 
     def get_queryset(self):
         return super(PublicManager, self).get_queryset().filter(

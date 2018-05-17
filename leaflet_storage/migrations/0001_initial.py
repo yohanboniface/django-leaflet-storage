@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
                 ('settings', leaflet_storage.fields.DictField(null=True, verbose_name='settings', blank=True)),
                 ('editors', models.ManyToManyField(to=settings.AUTH_USER_MODEL, verbose_name='editors', blank=True)),
                 ('licence', models.ForeignKey(on_delete=django.db.models.deletion.SET_DEFAULT, default=leaflet_storage.models.get_default_licence, verbose_name='licence', to='leaflet_storage.Licence', help_text='Choose the map licence.')),
-                ('owner', models.ForeignKey(related_name='owned_maps', verbose_name='owner', blank=True, to=settings.AUTH_USER_MODEL, null=True)),
+                ('owner', models.ForeignKey(related_name='owned_maps', verbose_name='owner', blank=True, to=settings.AUTH_USER_MODEL, null=True, on_delete=django.db.models.deletion.PROTECT)),
             ],
             options={
                 'ordering': ('name',),
@@ -96,11 +96,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='map',
             name='tilelayer',
-            field=models.ForeignKey(related_name='maps', verbose_name='background', blank=True, to='leaflet_storage.TileLayer', null=True),
+            field=models.ForeignKey(related_name='maps', verbose_name='background', blank=True, to='leaflet_storage.TileLayer', null=True, on_delete=django.db.models.deletion.SET_DEFAULT),
         ),
         migrations.AddField(
             model_name='datalayer',
             name='map',
-            field=models.ForeignKey(to='leaflet_storage.Map'),
+            field=models.ForeignKey(to='leaflet_storage.Map', on_delete=django.db.models.deletion.CASCADE),
         ),
     ]

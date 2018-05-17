@@ -2,7 +2,7 @@ import json
 
 import pytest
 from django.core.files.base import ContentFile
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from leaflet_storage.models import DataLayer, Map
 

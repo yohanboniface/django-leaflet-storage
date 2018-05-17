@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import logout as do_logout
 from django.contrib.auth import get_user_model
 from django.core.signing import Signer, BadSignature
-from django.core.urlresolvers import reverse_lazy, reverse
+from django.urls import reverse_lazy, reverse
 from django.http import (HttpResponse, HttpResponseForbidden,
                          HttpResponseRedirect, HttpResponsePermanentRedirect)
 from django.shortcuts import get_object_or_404
@@ -222,10 +222,10 @@ class MapCreate(FormLessEditMixin, CreateView):
     form_class = MapSettingsForm
 
     def form_valid(self, form):
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             form.instance.owner = self.request.user
         self.object = form.save()
-        if not self.request.user.is_authenticated():
+        if not self.request.user.is_authenticated:
             anonymous_url = "%s%s" % (
                 settings.SITE_URL,
                 self.object.get_anonymous_edit_url()
@@ -242,7 +242,7 @@ class MapCreate(FormLessEditMixin, CreateView):
             url=self.object.get_absolute_url(),
             info=msg
         )
-        if not self.request.user.is_authenticated():
+        if not self.request.user.is_authenticated:
             key, value = self.object.signed_cookie_elements
             response.set_signed_cookie(
                 key=key,
@@ -317,12 +317,12 @@ class MapClone(View):
 
     def post(self, *args, **kwargs):
         if not getattr(settings, "LEAFLET_STORAGE_ALLOW_ANONYMOUS", False) \
-           and not self.request.user.is_authenticated():
+           and not self.request.user.is_authenticated:
             return HttpResponseForbidden('Forbidden')
-        owner = self.request.user if self.request.user.is_authenticated() else None
+        owner = self.request.user if self.request.user.is_authenticated else None
         self.object = kwargs['map_inst'].clone(owner=owner)
         response = simple_json_response(redirect=self.object.get_absolute_url())
-        if not self.request.user.is_authenticated():
+        if not self.request.user.is_authenticated:
             key, value = self.object.signed_cookie_elements
             response.set_signed_cookie(
                 key=key,

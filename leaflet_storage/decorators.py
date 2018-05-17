@@ -1,6 +1,6 @@
 from functools import wraps
 
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseForbidden
 from django.conf import settings
@@ -10,14 +10,15 @@ from .models import Map
 
 
 LOGIN_URL = getattr(settings, "LOGIN_URL", "login")
-LOGIN_URL = reverse_lazy(LOGIN_URL) if not LOGIN_URL.startswith("/") else LOGIN_URL
+LOGIN_URL = (reverse_lazy(LOGIN_URL) if not LOGIN_URL.startswith("/")
+             else LOGIN_URL)
 
 
 def login_required_if_not_anonymous_allowed(view_func):
     @wraps(view_func)
     def wrapper(request, *args, **kwargs):
         if (not getattr(settings, "LEAFLET_STORAGE_ALLOW_ANONYMOUS", False)
-                and not request.user.is_authenticated()):
+                and not request.user.is_authenticated):
             return simple_json_response(login_required=str(LOGIN_URL))
         return view_func(request, *args, **kwargs)
     return wrapper
@@ -35,7 +36,7 @@ def map_permissions_check(view_func):
         if map_inst.edit_status >= map_inst.EDITORS:
             can_edit = map_inst.can_edit(user=user, request=request)
             if not can_edit:
-                if map_inst.owner and not user.is_authenticated():
+                if map_inst.owner and not user.is_authenticated:
                     return simple_json_response(login_required=str(LOGIN_URL))
                 else:
                     return HttpResponseForbidden('Action not allowed for user.')

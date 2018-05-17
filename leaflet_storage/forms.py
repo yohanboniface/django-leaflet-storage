@@ -48,7 +48,7 @@ class AnonymousMapPermissionsForm(forms.ModelForm):
         (Map.OWNER, _('Only editable with secret edit link'))
     )
 
-    edit_status = forms.ChoiceField(STATUS)
+    edit_status = forms.ChoiceField(choices=STATUS)
 
     class Meta:
         model = Map

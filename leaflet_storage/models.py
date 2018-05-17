@@ -5,7 +5,7 @@ import time
 
 from django.contrib.gis.db import models
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.core.signing import Signer
 from django.contrib import messages
@@ -135,14 +135,14 @@ class Map(NamedModel):
         default=get_default_licence
     )
     modified_at = models.DateTimeField(auto_now=True)
-    tilelayer = models.ForeignKey(TileLayer, blank=True, null=True, related_name="maps",  verbose_name=_("background"))
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, related_name="owned_maps", verbose_name=_("owner"))
+    tilelayer = models.ForeignKey(TileLayer, blank=True, null=True, related_name="maps",  verbose_name=_("background"), on_delete=models.PROTECT)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, related_name="owned_maps", verbose_name=_("owner"), on_delete=models.PROTECT)
     editors = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, verbose_name=_("editors"))
     edit_status = models.SmallIntegerField(choices=EDIT_STATUS, default=OWNER, verbose_name=_("edit status"))
     share_status = models.SmallIntegerField(choices=SHARE_STATUS, default=PUBLIC, verbose_name=_("share status"))
     settings = DictField(blank=True, null=True, verbose_name=_("settings"))
 
-    objects = models.GeoManager()
+    objects = models.Manager()
     public = PublicManager()
 
     def get_absolute_url(self):
@@ -174,7 +174,7 @@ class Map(NamedModel):
             if (getattr(settings, "LEAFLET_STORAGE_ALLOW_ANONYMOUS", False)
                     and self.is_anonymous_owner(request)):
                 can = True
-                if user and user.is_authenticated():
+                if user and user.is_authenticated:
                     # if user is authenticated, attach as owner
                     self.owner = user
                     self.save()
@@ -182,7 +182,7 @@ class Map(NamedModel):
                     messages.info(request, msg)
         if self.edit_status == self.ANONYMOUS:
             can = True
-        elif not user.is_authenticated():
+        elif not user.is_authenticated:
             pass
         elif user == self.owner:
             can = True
@@ -253,7 +253,7 @@ class DataLayer(NamedModel):
     """
     Layer to store Features in.
     """
-    map = models.ForeignKey(Map)
+    map = models.ForeignKey(Map, on_delete=models.CASCADE)
     description = models.TextField(
         blank=True,
         null=True,
